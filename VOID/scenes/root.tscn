@@ -1,0 +1,1120 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://scripts/spawner.gd" type="Script" id=1]
+[ext_resource path="res://scripts/void.gd" type="Script" id=2]
+[ext_resource path="res://sprites/sprite_planet.png" type="Texture" id=3]
+[ext_resource path="res://scripts/camera.gd" type="Script" id=4]
+[ext_resource path="res://scripts/button.gd" type="Script" id=5]
+[ext_resource path="res://sprites/sprite_pause.png" type="Texture" id=6]
+[ext_resource path="res://sprites/sprite_triangle.png" type="Texture" id=7]
+[ext_resource path="res://scripts/button_reset.gd" type="Script" id=8]
+[ext_resource path="res://sprites/sprite_exit.png" type="Texture" id=9]
+[ext_resource path="res://scripts/button_sound.gd" type="Script" id=10]
+[ext_resource path="res://sprites/sprite_sound.png" type="Texture" id=11]
+[ext_resource path="res://scenes/button_customize.gd" type="Script" id=12]
+[ext_resource path="res://sprites/sprite_costumize.png" type="Texture" id=13]
+[ext_resource path="res://fonts/rubik.tres" type="DynamicFont" id=14]
+[ext_resource path="res://scripts/fade.gd" type="Script" id=15]
+[ext_resource path="res://fonts/small_rubik.tres" type="DynamicFont" id=16]
+[ext_resource path="res://scenes/colorpicker_label.gd" type="Script" id=17]
+[ext_resource path="res://scripts/trail.gd" type="Script" id=18]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "customize"
+length = 0.35
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("colorpicker_background:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -460, 90 ), Vector2( 140, 90 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("colorpicker_planets_colonized:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -460, 980 ), Vector2( 140, 980 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("colorpicker_planets_uncolonized:rect_position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.05, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -460, 540 ), Vector2( 140, 540 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("colorpicker_shuttle:rect_position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.15, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1180, 90 ), Vector2( 570, 90 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("colorpicker_trail:rect_position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1180, 540 ), Vector2( 570, 540 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("colorpicker_void:rect_position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.25, 0.35 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1180, 980 ), Vector2( 570, 980 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("button_reset:rect_position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 92, 1252 ), Vector2( 92, 2092 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("button_sound:rect_position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 732, 1252 ), Vector2( 732, 2092 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("button_customize:rect_position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 412, 1256 ), Vector2( 360, 1466 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("button_customize:rect_size")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 256, 256 ), Vector2( 360, 360 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("button_pause:rect_position")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 360, 360 ), Vector2( 360, -1210 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("highscore_menu:rect_position")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 180, 820 ), Vector2( 180, -260 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("container_highscore:rect_position")
+tracks/12/interp = 2
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 540, 1076 ), Vector2( 540, -324 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("button_customize/sprite:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.4, 0.4 ), Vector2( 0.5625, 0.5625 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("button_customize/sprite:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 128, 128 ), Vector2( 180, 180 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+length = 0.2
+loop = false
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("button_pause:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 64, 64 ), Vector2( 360, 360 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("button_pause:rect_size")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 160, 160 ), Vector2( 360, 360 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("button_reset:rect_position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 92, 2220 ), Vector2( 92, 1252 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("button_sound:rect_position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 732, 2212 ), Vector2( 732, 1252 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("button_customize:rect_position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 412, 2216 ), Vector2( 412, 1256 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("highscore_menu:rect_position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1240, 820 ), Vector2( 180, 820 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("credit:rect_position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 300, -120 ), Vector2( 300, 40 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("container_highscore:rect_position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.08 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 540, 256 ), Vector2( 540, 1076 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("container_score:rect_position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 540, 144 ), Vector2( 540, -74 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("button_pause/sprite_pause:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("button_pause/sprite_play:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("button_pause/sprite_play:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 80 ), Vector2( 182, 182 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("button_pause/sprite_play:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.12, 0.12 ), Vector2( 0.24, 0.24 ) ]
+}
+
+[sub_resource type="Gradient" id=4]
+
+offsets = PoolRealArray( 0, 1 )
+colors = PoolColorArray( 1, 0, 0, 0, 1, 0, 0, 1 )
+
+[node name="root" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="void" type="StaticBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 3
+collision_mask = 3
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="sprite" type="Sprite" parent="void" index="0"]
+
+scale = Vector2( 0.15, 0.15 )
+z_index = 1
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="collision" type="CollisionShape2D" parent="void" index="1"]
+
+scale = Vector2( 4, 4 )
+z_index = 1
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="camera" type="Camera2D" parent="." index="1"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = true
+smoothing_speed = 10.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+script = ExtResource( 4 )
+_sections_unfolded = [ "Smoothing", "Transform" ]
+
+[node name="canvas" type="CanvasLayer" parent="." index="2"]
+
+layer = 1
+offset = Vector2( 0, 1080 )
+rotation = -1.5708
+scale = Vector2( 1, 1 )
+transform = Transform2D( -4.37114e-008, -1, 1, -4.37114e-008, 0, 1080 )
+
+[node name="animation" type="AnimationPlayer" parent="canvas" index="0"]
+
+pause_mode = 2
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/customize = SubResource( 2 )
+anims/pause = SubResource( 3 )
+blend_times = [  ]
+_sections_unfolded = [ "Pause" ]
+
+[node name="button_pause" type="Button" parent="canvas" index="1"]
+
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 224.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+script = ExtResource( 5 )
+_sections_unfolded = [ "Anchor", "Pause", "Rect" ]
+
+[node name="sprite_pause" type="Sprite" parent="canvas/button_pause" index="0"]
+
+position = Vector2( 80, 80 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="sprite_play" type="Sprite" parent="canvas/button_pause" index="1"]
+
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 72, 80 )
+scale = Vector2( 0.12, 0.12 )
+z_index = 1
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="button_reset" type="Button" parent="canvas" index="2"]
+
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 92.0
+margin_top = 2220.0
+margin_right = 348.0
+margin_bottom = 2476.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+script = ExtResource( 8 )
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="sprite" type="Sprite" parent="canvas/button_reset" index="0"]
+
+position = Vector2( 128, 128 )
+scale = Vector2( 0.36, 0.36 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="button_sound" type="Button" parent="canvas" index="3"]
+
+pause_mode = 2
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 732.0
+margin_top = 2212.0
+margin_right = 988.0
+margin_bottom = 2467.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+script = ExtResource( 10 )
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="sprite" type="Sprite" parent="canvas/button_sound" index="0"]
+
+position = Vector2( 128, 128 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="button_customize" type="Button" parent="canvas" index="4"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 412.0
+margin_top = 2216.0
+margin_right = 668.0
+margin_bottom = 2472.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+script = ExtResource( 12 )
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="sprite" type="Sprite" parent="canvas/button_customize" index="0"]
+
+position = Vector2( 128, 128 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 13 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="container_highscore" type="CenterContainer" parent="canvas" index="5"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 540.0
+margin_top = 256.0
+margin_right = 1059.0
+margin_bottom = 408.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = true
+_sections_unfolded = [ "Rect" ]
+
+[node name="highscore" type="Label" parent="canvas/container_highscore" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -41.0
+margin_top = -76.0
+margin_right = 40.0
+margin_bottom = 76.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 14 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_fonts", "custom_styles" ]
+
+[node name="container_score" type="CenterContainer" parent="canvas" index="6"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+margin_left = 540.0
+margin_top = 144.0
+margin_right = 540.0
+margin_bottom = -604.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = true
+_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+
+[node name="score" type="Label" parent="canvas/container_score" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -41.0
+margin_top = -76.0
+margin_right = 40.0
+margin_bottom = 76.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 14 )
+text = "0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = 1
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "custom_fonts" ]
+
+[node name="credit" type="Label" parent="canvas" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 300.0
+margin_top = -120.0
+margin_right = 780.0
+margin_bottom = -106.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Created by Dvir David Biton using the Godot Game Engine, 2018"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Rect" ]
+
+[node name="highscore_menu" type="Label" parent="canvas" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1240.0
+margin_top = 820.0
+margin_right = 1966.0
+margin_bottom = 1127.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 14 )
+text = "HIGHSCORE
+"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_fonts", "custom_styles" ]
+
+[node name="fade" type="Node2D" parent="canvas" index="9"]
+
+script = ExtResource( 15 )
+
+[node name="colorpicker_background" type="ColorPickerButton" parent="canvas" index="10"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -460.0
+margin_top = 90.0
+margin_right = -100.0
+margin_bottom = 450.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+_sections_unfolded = [ "Hint", "Pause", "Rect", "custom_fonts" ]
+
+[node name="label" type="Label" parent="canvas/colorpicker_background" index="1"]
+
+modulate = Color( 0.5, 0.5, 0.5, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -250.0
+margin_top = 160.0
+margin_right = 607.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 16 )
+text = "BACKGROUND"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 17 )
+_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="colorpicker_planets_uncolonized" type="ColorPickerButton" parent="canvas" index="11"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -460.0
+margin_top = 540.0
+margin_right = -100.0
+margin_bottom = 900.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="label" type="Label" parent="canvas/colorpicker_planets_uncolonized" index="1"]
+
+modulate = Color( 0.5, 0.5, 0.5, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -250.0
+margin_top = 160.0
+margin_right = 607.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 16 )
+text = "UNCOLONIZEE PLANETS"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 17 )
+_sections_unfolded = [ "Anchor", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="colorpicker_planets_colonized" type="ColorPickerButton" parent="canvas" index="12"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -460.0
+margin_top = 980.0
+margin_right = -100.0
+margin_bottom = 1340.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+_sections_unfolded = [ "Pause" ]
+
+[node name="label" type="Label" parent="canvas/colorpicker_planets_colonized" index="1"]
+
+modulate = Color( 0.5, 0.5, 0.5, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -250.0
+margin_top = 160.0
+margin_right = 607.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 16 )
+text = "COLONIZED PLANET"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 17 )
+_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="colorpicker_shuttle" type="ColorPickerButton" parent="canvas" index="13"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1180.0
+margin_top = 90.0
+margin_right = 1540.0
+margin_bottom = 450.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="label" type="Label" parent="canvas/colorpicker_shuttle" index="1"]
+
+modulate = Color( 0.5, 0.5, 0.5, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -250.0
+margin_top = 160.0
+margin_right = 607.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 16 )
+text = "SHUTTLE"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 17 )
+_sections_unfolded = [ "Hint", "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="colorpicker_trail" type="ColorPickerButton" parent="canvas" index="14"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1180.0
+margin_top = 540.0
+margin_right = 1540.0
+margin_bottom = 900.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="label" type="Label" parent="canvas/colorpicker_trail" index="1"]
+
+modulate = Color( 0.5, 0.5, 0.5, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -250.0
+margin_top = 160.0
+margin_right = 607.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 16 )
+text = "TRAIL"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 17 )
+_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="colorpicker_void" type="ColorPickerButton" parent="canvas" index="15"]
+
+pause_mode = 2
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1180.0
+margin_top = 980.0
+margin_right = 1540.0
+margin_bottom = 1340.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+color = Color( 1, 1, 1, 1 )
+edit_alpha = false
+_sections_unfolded = [ "Pause", "Rect" ]
+
+[node name="label" type="Label" parent="canvas/colorpicker_void" index="1"]
+
+modulate = Color( 0.5, 0.5, 0.5, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -250.0
+margin_top = 160.0
+margin_right = 607.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 16 )
+text = "VOID"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 17 )
+_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="sound_player" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="trail" type="Line2D" parent="." index="4"]
+
+points = PoolVector2Array( 548.789, 1344.7 )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+gradient = SubResource( 4 )
+texture_mode = 559743056
+sharp_limit = 2.0
+round_precision = 8
+script = ExtResource( 18 )
+_sections_unfolded = [ "Fill", "Transform" ]
+
+[node name="background" type="Sprite" parent="." index="5"]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="animation_started" from="canvas/animation" to="canvas/button_reset" method="_on_animation_animation_started"]
+
+[connection signal="color_changed" from="canvas/colorpicker_background" to="." method="_on_colorpicker_background_color_changed"]
+
+[connection signal="color_changed" from="canvas/colorpicker_background" to="canvas/colorpicker_background/label" method="_on_colorpicker_background_color_changed"]
+
+[connection signal="button_down" from="canvas/colorpicker_planets_uncolonized" to="." method="_on_colorpicker_planets_uncolonized_button_down"]
+
+[connection signal="color_changed" from="canvas/colorpicker_planets_uncolonized" to="." method="_on_colorpicker_planets_uncolonized_color_changed"]
+
+[connection signal="button_down" from="canvas/colorpicker_planets_colonized" to="." method="_on_colorpicker_planets_colonized_button_down"]
+
+[connection signal="color_changed" from="canvas/colorpicker_planets_colonized" to="." method="_on_colorpicker_planets_colonized_color_changed"]
+
+[connection signal="color_changed" from="canvas/colorpicker_shuttle" to="." method="_on_colorpicker_shuttle_color_changed"]
+
+[connection signal="color_changed" from="canvas/colorpicker_trail" to="." method="_on_colorpicker_trail_color_changed"]
+
+[connection signal="color_changed" from="canvas/colorpicker_void" to="." method="_on_colorpicker_void_color_changed"]
+
+

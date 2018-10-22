@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/planet.gd" type="Script" id=1]
+[ext_resource path="res://sprites/sprite_circle.png" type="Texture" id=2]
+
+[node name="planet" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 3
+collision_mask = 3
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
+
+[node name="collision" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array(  )
+_sections_unfolded = [ "Transform" ]
+
+[node name="area" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 3
+collision_mask = 3
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="collision" type="CollisionPolygon2D" parent="area" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array(  )
+
+[node name="sprite" type="Sprite" parent="." index="2"]
+
+texture = ExtResource( 2 )
+
+[connection signal="body_shape_exited" from="area" to="." method="_on_area_body_shape_exited"]
+
+

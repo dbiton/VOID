@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sound_wood_block.wav-6ace7e84da1067b97ec39a95ca90860c.sample"
+
+[deps]
+
+source_file="res://sounds/sound_wood_block.wav"
+dest_files=[ "res://.import/sound_wood_block.wav-6ace7e84da1067b97ec39a95ca90860c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

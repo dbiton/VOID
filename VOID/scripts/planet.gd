@@ -1,4 +1,5 @@
 #very low performance on android for some reason
+#(I fixed it) the reason was me using draw polygon instead of a sprite.
 extends KinematicBody2D
 
 onready var sfx_kick = preload("res://sounds/sound_kick.wav")

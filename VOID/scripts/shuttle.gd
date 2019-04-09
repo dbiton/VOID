@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var void = get_node("/root/root/void")
+onready var Void = get_node("/root/root/void")
 onready var camera = get_node("/root/root/camera")
 onready var global = get_node("/root/root/")
 onready var G = get_node("/root/root/").G
@@ -34,7 +34,7 @@ func _die():
 	queue_free()
 
 func _physics_process(delta):
-	var vect = void.get_global_position()-get_global_position()
+	var vect = Void.get_global_position()-get_global_position()
 	var dir = vect.normalized()
 	var distance = sqrt(vect.x*vect.x+vect.y*vect.y)
 	delta_v = (dir*mass*G)/(distance*distance)
@@ -52,8 +52,8 @@ func _physics_process(delta):
 			sound_sampler.play()
 			free()
 		elif move.collider.get_name() == "void":
-			sound_sampler.set_volume_db(void.volume_tom)
-			sound_sampler.set_stream(void.sfx_tom)
+			sound_sampler.set_volume_db(Void.volume_tom)
+			sound_sampler.set_stream(Void.sfx_tom)
 			sound_sampler.play()
 			_die()
 

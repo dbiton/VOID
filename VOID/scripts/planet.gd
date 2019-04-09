@@ -1,5 +1,4 @@
 #very low performance on android for some reason
-#(I fixed it) the reason was me using draw polygon instead of a sprite.
 extends KinematicBody2D
 
 onready var sfx_kick = preload("res://sounds/sound_kick.wav")
@@ -16,9 +15,9 @@ onready var collision_shape_area = get_node("area/collision")
 onready var camera = get_node("/root/root/camera")
 onready var sound_player = get_node("/root/root/sound_player")
 onready var global = get_node("/root/root/")
-onready var void = get_node("/root/root/void")
+onready var Void = get_node("/root/root/void")
 
-onready var mass_void = void.mass
+onready var mass_void = Void.mass
 onready var G = global.G
 
 var velocity = Vector2(0,0)
@@ -30,7 +29,7 @@ var d_min = 20 #dragging for below this distance will not launch a shuttle
 var d_max = 200 #dragging above this distance will not make the shuttle faster
 var v_min = 100
 var v_max = 500
-var dir
+var dir = Vector2(0,0)
 var v
 var pos0 = 0
 var crosshair
@@ -108,7 +107,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	
-	var vect = void.get_global_position()-get_global_position()
+	var vect = Void.get_global_position()-get_global_position()
 	var direction = vect.normalized()
 	var distance = sqrt(vect.x*vect.x+vect.y*vect.y)
 	var velocity_delta = (direction*mass_void*G)/(distance*distance)
@@ -118,8 +117,8 @@ func _physics_process(delta):
 		if move.collider.name == "void":
 			move.collider._oscillate(radius/oscillate_coe)#
 			if colonized:
-				sound_player.set_volume_db(void.volume_tom)
-				sound_player.set_stream(void.sfx_tom)
+				sound_player.set_volume_db(Void.volume_tom)
+				sound_player.set_stream(Void.sfx_tom)
 				sound_player.play()
 				get_node("/root/root/trail")._reset_trail()
 				global._reset_score()
@@ -157,7 +156,7 @@ func _input(event):
 			var shuttle = scene_shuttle.instance()
 			get_parent().add_child(shuttle)
 			shuttle.set_global_position(get_global_position())
-			shuttle.set("velocity",Vector2(dir*v))
+			shuttle.set("velocity", v*dir)
 			shuttle.set("origin",self)
 			shuttle.add_to_group("player")
 			get_node("/root/root/trail")._reset_trail()
